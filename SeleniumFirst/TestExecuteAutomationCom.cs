@@ -8,10 +8,11 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 
+
 namespace SeleniumFirst
 {   
     [TestFixture]
-    class Program
+    class TestExecuteAutomationCom
     {
         public static void Main(string[] args)
         {
@@ -37,7 +38,6 @@ namespace SeleniumFirst
             // Initial
             SeleniumSetMethods.EnterText(driver, "Id", "Initial", "H.V.A.");
 
-            
             // First Name
             SeleniumSetMethods.EnterText(driver, "XPath", "//*[@id = 'FirstName']", "Vitali");
 
