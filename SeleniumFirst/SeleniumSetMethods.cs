@@ -12,54 +12,54 @@ namespace SeleniumFirst
 {
     class SeleniumSetMethods
     {
-        public static object SelectElement { get; private set; }
+        //public static object SelectElement { get; private set; }
 
         //Enter Text
-        public static void EnterText(IWebDriver driver, string findBy, string locator, string text)
+        public static void EnterText(PropertyType elementType, string locator, string text)
         {
-            switch (findBy) {
-                case ("Id"):
-                    driver.FindElement(By.Id(locator)).SendKeys(text);
+            switch (elementType) {
+                case (PropertyType.Id):
+                    PropertiesCollection.driver.FindElement(By.Id(locator)).SendKeys(text);
                     break;
-                case ("Name"):
-                    driver.FindElement(By.Name(locator)).SendKeys(text);
+                case (PropertyType.Name):
+                    PropertiesCollection.driver.FindElement(By.Name(locator)).SendKeys(text);
                     break;
-                case ("XPath"):
-                    driver.FindElement(By.XPath(locator)).SendKeys(text);
+                case (PropertyType.XPath):
+                    PropertiesCollection.driver.FindElement(By.XPath(locator)).SendKeys(text);
                     break;
             }
         }
 
         // Click any element
-        public static void ClickElement(IWebDriver driver, string findBy, string locator)
+        public static void ClickElement(PropertyType elementType, string locator)
         {
-            switch (findBy)
+            switch (elementType)
             {
-                case ("Id"):
-                    driver.FindElement(By.Id(locator)).Click();
+                case (PropertyType.Id):
+                    PropertiesCollection.driver.FindElement(By.Id(locator)).Click();
                     break;
-                case ("Name"):
-                    driver.FindElement(By.Name(locator)).Click();
+                case (PropertyType.Name):
+                    PropertiesCollection.driver.FindElement(By.Name(locator)).Click();
                     break;
-                case ("XPath"):
-                    driver.FindElement(By.XPath(locator)).Click();
+                case (PropertyType.XPath):
+                    PropertiesCollection.driver.FindElement(By.XPath(locator)).Click();
                     break;
             }
         }
 
         // Select a drop down control
-        public static void SelectDropDown(IWebDriver driver, string findBy, string locator, string text)
+        public static void SelectDropDown(PropertyType elementType, string locator, string text)
         {
-            switch (findBy)
+            switch (elementType)
             {
-                case ("Id"):
-                    new SelectElement(driver.FindElement(By.Id(locator))).SelectByText(text);
+                case (PropertyType.Id):
+                    new SelectElement(PropertiesCollection.driver.FindElement(By.Id(locator))).SelectByText(text);
                     break;
-                case ("Name"):
-                    new SelectElement(driver.FindElement(By.Name(locator))).SelectByText(text);
+                case (PropertyType.Name):
+                    new SelectElement(PropertiesCollection.driver.FindElement(By.Name(locator))).SelectByText(text);
                     break;
-                case ("XPath"):
-                    new SelectElement(driver.FindElement(By.XPath(locator))).SelectByText(text);
+                case (PropertyType.XPath):
+                    new SelectElement(PropertiesCollection.driver.FindElement(By.XPath(locator))).SelectByText(text);
                     break;
             }
         }

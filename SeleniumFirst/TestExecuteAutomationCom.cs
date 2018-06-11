@@ -18,14 +18,12 @@ namespace SeleniumFirst
         {
         }
         static int run = 0;
-        IWebDriver driver;
-
         [SetUp]
         public void SetUp()
         {
-            driver = new FirefoxDriver();
-            driver.Navigate().GoToUrl("http://www.executeautomation.com/demosite/index.html");
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15.0);
+            PropertiesCollection.driver = new FirefoxDriver();
+            PropertiesCollection.driver.Navigate().GoToUrl("http://www.executeautomation.com/demosite/index.html");
+            PropertiesCollection.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15.0);
             Console.WriteLine("Set Up");
         }
         [Test]
@@ -33,37 +31,37 @@ namespace SeleniumFirst
         {
           
             // Title
-            SeleniumSetMethods.SelectDropDown(driver, "Name", "TitleId", "Mr.");
+            SeleniumSetMethods.SelectDropDown(PropertyType.Name, "TitleId", "Mr.");
 
             // Initial
-            SeleniumSetMethods.EnterText(driver, "Id", "Initial", "H.V.A.");
+            SeleniumSetMethods.EnterText(PropertyType.Id, "Initial", "H.V.A.");
 
             // First Name
-            SeleniumSetMethods.EnterText(driver, "XPath", "//*[@id = 'FirstName']", "Vitali");
+            SeleniumSetMethods.EnterText(PropertyType.XPath, "//*[@id = 'FirstName']", "Vitali");
 
             // Middle Name
-            SeleniumSetMethods.EnterText(driver, "Name", "MiddleName", "Hanich");
+            SeleniumSetMethods.EnterText(PropertyType.Name, "MiddleName", "Hanich");
 
             // Get values
-            Console.WriteLine($"The value from my Title is: {SeleniumGetMethods.GetText(driver, "Name", "TitleId")}");
+            Console.WriteLine($"The value from my Title is: {SeleniumGetMethods.GetText(PropertyType.Name, "TitleId")}");
 
-            Console.WriteLine($"The value from my Initial is: {SeleniumGetMethods.GetText(driver, "Id", "Initial")}");
+            Console.WriteLine($"The value from my Initial is: {SeleniumGetMethods.GetText(PropertyType.Id, "Initial")}");
 
-            Console.WriteLine($"The value from my First Name is: {SeleniumGetMethods.GetText(driver, "XPath", "//*[@id = 'FirstName']")}");
+            Console.WriteLine($"The value from my First Name is: {SeleniumGetMethods.GetText(PropertyType.XPath, "//*[@id = 'FirstName']")}");
 
-            Console.WriteLine($"The value from my Middle Name is: {SeleniumGetMethods.GetText(driver, "Name", "MiddleName")}");
+            Console.WriteLine($"The value from my Middle Name is: {SeleniumGetMethods.GetText(PropertyType.Name, "MiddleName")}");
 
             // Click Language check box
-            SeleniumSetMethods.ClickElement(driver, "Name", "english");
+            SeleniumSetMethods.ClickElement(PropertyType.Name, "english");
 
             // Click Save
-            SeleniumSetMethods.ClickElement(driver, "Name", "Save");
+            SeleniumSetMethods.ClickElement(PropertyType.Name, "Save");
     
         }
         [TearDown]
         public void tearDown()
         {
-            driver.Close();
+            PropertiesCollection.driver.Close();
             Console.WriteLine("Tear Down");
         }
     }

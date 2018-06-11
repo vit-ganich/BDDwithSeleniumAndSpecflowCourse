@@ -12,32 +12,32 @@ namespace SeleniumFirst
 {
     class SeleniumGetMethods
     {
-        public static string GetText(IWebDriver driver, string findBy, string locator)
+        public static string GetText(PropertyType elementType, string locator)
         {
-            switch (findBy)
+            switch (elementType)
             {
-                case ("Id"):
-                    return driver.FindElement(By.Id(locator)).GetAttribute("value");
-                case ("Name"):
-                    return driver.FindElement(By.Name(locator)).GetAttribute("value");
-                case ("XPath"):
-                    return driver.FindElement(By.XPath(locator)).GetAttribute("value");
+                case (PropertyType.Id):
+                    return PropertiesCollection.driver.FindElement(By.Id(locator)).GetAttribute("value");
+                case (PropertyType.Name):
+                    return PropertiesCollection.driver.FindElement(By.Name(locator)).GetAttribute("value");
+                case (PropertyType.XPath):
+                    return PropertiesCollection.driver.FindElement(By.XPath(locator)).GetAttribute("value");
                 default:
                     return String.Empty;
             }
         }
 
         // Get text from Drop-Down List
-        public static string GetTextFromDDL(IWebDriver driver, string findBy, string locator)
+        public static string GetTextFromDDL(PropertyType elementType, string locator)
         {
-            switch (findBy)
+            switch (elementType)
             {
-                case ("Id"):
-                    return new SelectElement(driver.FindElement(By.Id(locator))).AllSelectedOptions.SingleOrDefault().Text;
-                case ("Name"):
-                    return new SelectElement(driver.FindElement(By.Name(locator))).AllSelectedOptions.SingleOrDefault().Text;
-                case ("XPath"):
-                    return new SelectElement(driver.FindElement(By.XPath(locator))).AllSelectedOptions.SingleOrDefault().Text;
+                case (PropertyType.Id):
+                    return new SelectElement(PropertiesCollection.driver.FindElement(By.Id(locator))).AllSelectedOptions.SingleOrDefault().Text;
+                case (PropertyType.Name):
+                    return new SelectElement(PropertiesCollection.driver.FindElement(By.Name(locator))).AllSelectedOptions.SingleOrDefault().Text;
+                case (PropertyType.XPath):
+                    return new SelectElement(PropertiesCollection.driver.FindElement(By.XPath(locator))).AllSelectedOptions.SingleOrDefault().Text;
                 default:
                     return String.Empty;
             }
