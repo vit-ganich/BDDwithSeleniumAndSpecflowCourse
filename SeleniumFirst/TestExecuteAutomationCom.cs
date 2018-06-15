@@ -1,17 +1,13 @@
 ﻿using System;
 using NUnit.Framework;
 using OpenQA.Selenium.Firefox;
-using SeleniumScripts;
+
 
 namespace SeleniumScripts
 {
     [TestFixture]
     class TestExecuteAutomationCom
     {
-        public static void Main(string[] args)
-        {
-        }
-        static int run = 0;
         [SetUp]
         public void SetUp()
         {
