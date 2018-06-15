@@ -18,11 +18,16 @@ namespace SeleniumScripts
             PropertiesCollection.driver = new FirefoxDriver();
             PropertiesCollection.driver.Navigate().GoToUrl(PropertiesCollection.startpage);
             PropertiesCollection.driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15.0);
-            Console.WriteLine("Set Up");
         }
         [Test]
         public void ExecuteText()
         {
+            // Login to Application
+            LoggingPageObject pageLogin = new LoggingPageObject();
+            EAPageObject pageEA = pageLogin.Login("user1", "pass123");
+
+            pageEA.FillUserForm("Sir", "Vitali", "Hanich");
+
             // Initialazing the page by calling its reference
             EAPageObject page = new EAPageObject();
 
@@ -54,7 +59,6 @@ namespace SeleniumScripts
         public void tearDown()
         {
             PropertiesCollection.driver.Close();
-            Console.WriteLine("Tear Down");
         }
     }
 }

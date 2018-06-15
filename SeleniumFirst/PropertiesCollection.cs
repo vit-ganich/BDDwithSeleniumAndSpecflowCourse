@@ -16,7 +16,7 @@ namespace SeleniumScripts
     {
         //Auto-implemented property
         public static IWebDriver driver { get; set; }
-
-        public static string startpage = "http://www.executeautomation.com/demosite/index.html";
+        public static string startpage = "http://www.executeautomation.com/demosite/Login.html";
+        public static string startpageOld = "http://www.executeautomation.com/demosite/index.html";
     }
 }

@@ -7,8 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-
-
 namespace SeleniumScripts
 {
     class EAPageObject
@@ -35,5 +33,15 @@ namespace SeleniumScripts
         // Save button
         [FindsBy(How = How.Name, Using = "Save")]
         public IWebElement btnSave { get; set; }
+
+
+        public void FillUserForm(string initial, string firstName, string middleName)
+        {
+            txtInitial.SendKeys(initial);
+            txtFirstName.SendKeys(firstName);
+            txtMiddleName.SendKeys(middleName);
+            chboxLangEnglish.Click();
+            btnSave.Click();
+        } 
     }
 }
