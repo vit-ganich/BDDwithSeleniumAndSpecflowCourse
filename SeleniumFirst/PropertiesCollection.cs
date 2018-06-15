@@ -1,11 +1,7 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SeleniumFirst
+
+namespace SeleniumScripts
 {
     enum PropertyType
     {
@@ -15,11 +11,12 @@ namespace SeleniumFirst
         CssSelector,
         ClassName,
         XPath
-
     }
     class PropertiesCollection
     {
         //Auto-implemented property
         public static IWebDriver driver { get; set; }
+
+        public static string startpage = "http://www.executeautomation.com/demosite/index.html";
     }
 }
