@@ -1,10 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace SeleniumScripts
@@ -37,11 +32,11 @@ namespace SeleniumScripts
 
         public void FillUserForm(string initial, string firstName, string middleName)
         {
-            txtInitial.SendKeys(initial);
-            txtFirstName.SendKeys(firstName);
-            txtMiddleName.SendKeys(middleName);
-            chboxLangEnglish.Click();
-            btnSave.Click();
+            SeleniumSetMethods.EnterText(txtInitial, initial);
+            SeleniumSetMethods.EnterText(txtFirstName, firstName);
+            SeleniumSetMethods.EnterText(txtMiddleName, middleName);
+            SeleniumSetMethods.ClickElement(chboxLangEnglish);
+            SeleniumSetMethods.ClickElement(btnSave);
         } 
     }
 }

@@ -21,35 +21,9 @@ namespace SeleniumScripts
             // Login to Application
             LoggingPageObject pageLogin = new LoggingPageObject();
             EAPageObject pageEA = pageLogin.Login("user1", "pass123");
-
+            // Fill User Detais
             pageEA.FillUserForm("Sir", "Vitali", "Hanich");
 
-            // Initialazing the page by calling its reference
-            EAPageObject page = new EAPageObject();
-
-            page.txtInitial.SendKeys("Sir");
-            page.txtFirstName.SendKeys("Vitali");
-            page.txtMiddleName.SendKeys("Hanich");
-            page.chboxLangEnglish.Click();
-            page.btnSave.Click();
-
-            //// Title
-            //SeleniumSetMethods.SelectDropDown(PropertyType.Name, "TitleId", "Mr.");
-            //// Initial
-            //SeleniumSetMethods.EnterText(PropertyType.Id, "Initial", "H.V.A.");
-            //// First Name
-            //SeleniumSetMethods.EnterText(PropertyType.XPath, "//*[@id = 'FirstName']", "Vitali");
-            //// Middle Name
-            //SeleniumSetMethods.EnterText(PropertyType.Name, "MiddleName", "Hanich");
-            //// Get values
-            //Console.WriteLine($"The value from my Title is: {SeleniumGetMethods.GetText(PropertyType.Name, "TitleId")}");
-            //Console.WriteLine($"The value from my Initial is: {SeleniumGetMethods.GetText(PropertyType.Id, "Initial")}");
-            //Console.WriteLine($"The value from my First Name is: {SeleniumGetMethods.GetText(PropertyType.XPath, "//*[@id = 'FirstName']")}");
-            //Console.WriteLine($"The value from my Middle Name is: {SeleniumGetMethods.GetText(PropertyType.Name, "MiddleName")}");
-            //// Click Language check box
-            //SeleniumSetMethods.ClickElement(PropertyType.Name, "english");
-            //// Click Save
-            //SeleniumSetMethods.ClickElement(PropertyType.Name, "Save");
         }
         [TearDown]
         public void tearDown()
