@@ -6,7 +6,6 @@ namespace SeleniumScripts
 {
     class LoggingPageObject
     {
-
         public LoggingPageObject()
         {
             PageFactory.InitElements(PropertiesCollection.driver, this);
